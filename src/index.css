@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  
+}
+
+body {
+  font-family: OpenSans, Arial, sans-serif;
+  font: var(--cds-typography-body-primary);
+  letter-spacing: var(--cds-letter-spacing-0);
+  color: var(--cds-color-neutral-primary);
+  background-color: var(--cds-color-white-0);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/*style for statsCarosuel*/
+.cbg{
+  background-color: #d7f6fa;
+}
+
+.nav {
+  border-bottom: 1px solid;
+  display: flex;
+  unicode-bidi: isolate
+   
+}
+ .navl{font-family: OpenSans, Arial, sans-serif;}
+
+/* Navbar base */
+.navbar {
+  background-color: #bbb5b5;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Brand */
+.navbar-brand span {
+  font-size: 1.4rem;
+  color: #080000;
+}
+/*links*/
+li {
+ color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 16px;
+  position:relative;
+  transition: color 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.05); 
+  text-shadow: 0 2px 6px rgba(112, 196, 241, 0.1); 
+}
+/* Collapse behavior */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Mobile collapse menu */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .navbar-nav .nav-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .navbar-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-nav .nav-item a {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+}
+
+/* Sign In button */
+.navbar .btn-primary {
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(13, 110, 253, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar .btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+
+/*footer*/
+.foot{ 
+  color: black;
+font-size: large;
+}
+
+/*input styling*/
+input{  border-radius: 8px;}
+input:hover {
+  border-color: #4A90E2; /* Change border color */
+  background-color: #f0f8ff; /* Light background on hover */
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); /* Subtle glow */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+ /*filter styled*/
+ filter {
+
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+ filter:hover {
+  filter: brightness(1.1) contrast(1.2); /* Slightly brighter and more contrast */
+  transition: filter 0.3s ease;
+}
+/*Card*/
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.selected-card {
+  position: fixed;  /* Fix the card in place */
+  top: 50%;  /* Center vertically */
+  left: 50%;  /* Center horizontally */
+  transform: translate(-50%, -50%) scale(1); /* Center the card and scale it */
+  border: 3px solid #0d6efd !important;
+  box-shadow: 0 0 40px rgba(13, 110, 253, 0.5) !important;
+  z-index: 1500;  /* Ensure the card is above other content */
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  max-width: 100%;  /* Prevent the card from overflowing horizontally */
+  max-height: 100%; /* Prevent the card from overflowing vertically */
+  overflow: auto; /* Prevent the content from spilling out */
+}
+
+
+
+/*btn*/
+.btn {
+  background-color:#9ACBD0;
+  color:black;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color:lightskyblue ;
+  color: #fff;
+  transform: translateY(-2px);
+}
+/* Custom Animation Styles */
+
+@keyframes bgSlide {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
