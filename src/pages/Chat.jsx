@@ -109,7 +109,7 @@ const Chat = () => {
           </div>
 
           {/* Chat Area */}
-          <div className="col-md-8 d-flex flex-column position-relative overflow-hidden">
+          <div className="chat-messages col-md-8 d-flex flex-column position-relative flex-grow-1  overflow-auto">
             {/* Background image layer */}
             <div
               style={{

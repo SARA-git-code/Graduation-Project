@@ -6,6 +6,7 @@ body {
   background-color: var(--cds-color-white-0);
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 .container-fluid{
   height: 99%;
@@ -17,7 +18,7 @@ body {
   display: flex;
   border-bottom: 1px solid;
   unicode-bidi: isolate;
-   
+ 
 }
  .navl{font-family: OpenSans, Arial, sans-serif;}
 
@@ -176,6 +177,7 @@ li:hover {
    padding:0 70px;
    margin: 0 70px 0 0;
    display: block;
+  
   }
 }
 
@@ -268,8 +270,11 @@ input:hover {
   color: #fff;
   transform: translateY(-2px);
 }
-
-
+/*chat styling*/
+.chat-messages {
+  max-height: calc(100vh - 150px); /* adjust based on your footer/input height */
+  overflow-y: auto;
+}
 
 
 
