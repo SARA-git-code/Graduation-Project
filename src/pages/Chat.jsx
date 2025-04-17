@@ -39,11 +39,19 @@ const Chat = () => {
   };
 
   return (
-    <div className="vh-100">
-      <div className="container-fluid h-100">
-        <div className="row h-100 border shadow-sm rounded overflow-hidden">
+    < >
+
+
+
+
+      <div className="d-flex justify-content-center align-items-center  position-relative chat-page vh-100 "
+       style={{backgroundColor:'#3A59D1'}}>
+        <div className="container-fluid row  border shadow-lg rounded bg-white">
           {/* Sidebar */}
-          <div className="col-md-4 d-flex flex-column border-end bg-white">
+          <div
+            className="col-md-4 d-flex flex-column border-end"
+
+          >
             <div className="p-3 d-flex justify-content-start">
               <button
                 className="btn p-0 border-0"
@@ -74,6 +82,7 @@ const Chat = () => {
                   placeholder="Search conversations..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{ borderColor: '#128c7e' }} // Darker green accent
                 />
               </div>
             </div>
@@ -86,9 +95,8 @@ const Chat = () => {
                   <div
                     key={chat.id}
                     onClick={() => setSelectedConversation(chat)}
-                    className={`p-3 border-bottom cursor-pointer ${
-                      selectedConversation?.id === chat.id ? 'bg-light' : ''
-                    }`}
+                    className={`p-3 border-bottom cursor-pointer ${selectedConversation?.id === chat.id ? 'bg-light' : ''
+                      }`}
                     style={{ cursor: 'pointer' }}
                   >
                     <h6 className="mb-1">{chat.name}</h6>
@@ -102,83 +110,84 @@ const Chat = () => {
 
           {/* Chat Area */}
           <div className="col-md-8 d-flex flex-column position-relative overflow-hidden">
-  {/* Background image layer */}
-  <div
-    style={{
-      backgroundImage: `url(${donateimage3})`,
-      backgroundRepeat: 'repeat',
-      backgroundSize: 'contain',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      opacity: 0.15,
-      zIndex: 0,
-    }}
-    
-  >
-      <div
-        className="w-100 h-100"
-        style={{ backgroundColor: 'rgba(242, 61, 61, 0.4)' }}
-      ></div>
-    </div>
-
-
-  {/* Chat content layer */}
-  <div className="d-flex flex-column flex-grow-1 h-100" style={{ position: 'relative', zIndex: 1 }}>
-    {selectedConversation ? (
-      <>
-        <div className="p-3 border-bottom bg-white bg-opacity-75">
-          <h5 className="mb-0">{selectedConversation.name}</h5>
-          <small className="text-success">Online</small>
-        </div>
-
-        <div className="flex-grow-1 overflow-auto p-3">
-          {getMessagesForSelectedConversation().map((msg, index) => (
+            {/* Background image layer */}
             <div
-              key={index}
-              className={`d-flex mb-2 ${
-                msg.sender === 'You' ? 'justify-content-end' : 'justify-content-start'
-              }`}
+              style={{
+                backgroundImage: `url(${donateimage3})`,
+                backgroundRepeat: 'repeat',
+                backgroundSize: 'contain',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                opacity: 0.2,
+                zIndex: 0,
+              }}
             >
               <div
-                className={`p-2 rounded ${
-                  msg.sender === 'You' ? 'bg-primary text-white' : 'bg-light'
-                }`}
-                style={{ maxWidth: '75%' }}
-              >
-                {msg.content}
-              </div>
+                className="w-100 h-100"
+                style={{ backgroundColor: 'rgba(65, 162, 201, 0.4)' }}
+              ></div>
             </div>
-          ))}
-        </div>
 
-        <div className="p-3 border-top bg-white">
-          <form className="d-flex gap-2" onSubmit={handleSendMessage}>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Type your message..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            <button type="submit" className="btn btn-primary d-flex align-items-center justify-content-center">
-              <Send size={18} />
-            </button>
-          </form>
-        </div>
-      </>
-    ) : (
-      <div className="d-flex justify-content-center align-items-center flex-grow-1">
-        <p className="text-muted">Select a conversation to start chatting.</p>
-      </div>
-    )}
-  </div>
-</div>
+            {/* Chat content layer */}
+            <div
+              className="d-flex flex-column flex-grow-1 h-100"
+              style={{ position: 'relative', zIndex: 1 }}
+            >
+              {selectedConversation ? (
+                <>
+                  <div className="p-3 border-bottom bg-white bg-opacity-75">
+                    <h5 className="mb-0">{selectedConversation.name}</h5>
+                    <small className="text-success">Online</small>
+                  </div>
 
+                  <div className="flex-grow-1 overflow-auto p-3">
+                    {getMessagesForSelectedConversation().map((msg, index) => (
+                      <div
+                        key={index}
+                        className={`d-flex mb-2 ${msg.sender === 'You' ? 'justify-content-end' : 'justify-content-start'
+                          }`}
+                      >
+                        <div
+                          className={`p-2 rounded ${msg.sender === 'You' ? 'bg-primary text-white' : 'bg-light'
+                            }`}
+                          style={{ maxWidth: '75%' }}
+                        >
+                          {msg.content}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-3 border-top bg-white">
+                    <form className="d-flex gap-2" onSubmit={handleSendMessage}>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Type your message..."
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                      />
+                      <button
+                        type="submit"
+                        className="btn btn-primary d-flex align-items-center justify-content-center"
+                      >
+                        <Send size={18} />
+                      </button>
+                    </form>
+                  </div>
+                </>
+              ) : (
+                <div className="d-flex justify-content-center align-items-center flex-grow-1">
+                  <p className="text-muted">Select a conversation to start chatting.</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
+      
 
       {/* Profile Drawer */}
       {showProfile && (
@@ -193,7 +202,9 @@ const Chat = () => {
           <Profile onClose={() => setShowProfile(false)} />
         </div>
       )}
-    </div>
+   </div>
+ 
+    </>
   );
 };
 

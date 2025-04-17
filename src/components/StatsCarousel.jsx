@@ -1,38 +1,8 @@
 import React from "react";
-import Slider from "react-slick";
 import { Gift, Users, Heart } from "lucide-react";
 
 const StatsCarousel = () => {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 600,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 3000,
-      responsive: [
-        {
-          breakpoint: 768, // mobile
-          settings: {
-            slidesToShow: 1,
-          },
-        },
-        {
-          breakpoint: 1024, // tablets
-          settings: {
-            slidesToShow: 2,
-          },
-        },
-        {
-          breakpoint: 1400, // desktops
-          settings: {
-            slidesToShow: 3,
-          },
-        },
-      ],
-    };
-  
+   
     const stats = [
       {
         icon: <Gift className="text-primary" size={40} />,
@@ -53,28 +23,39 @@ const StatsCarousel = () => {
   
     return (
       <section className="my-5 text-center">
-        <div className="container">
-          <Slider {...settings}>
-            {stats.map((stat, index) => (
-              <div key={index} className="px-3">
+      <div className="container">
+        <div className="row justify-content-center">
+          {stats.map((stat, index) => (
+            <div key={index} className="col-md-6 col-lg-4 px-4 mb-5">
+              <div
+                className="cbg rounded shadow-sm mx-auto transition-all hover:shadow-lg"
+                style={{
+                  padding: "120px 80px", // More space inside the card
+                  maxWidth: "100%",
+                  minHeight: "500px", // Taller card
+                }}
+              >
                 <div
-                  className="cbg p-4 rounded shadow-sm mx-auto transition-all hover:shadow-lg"
-                  style={{ maxWidth: "400px" }}
+                  className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                  style={{
+                    width: "100px", // Bigger icon circle
+                    height: "100px",
+                    backgroundColor: "#fcfefe",
+                    fontSize: "2.5rem", // Make sure the icon scales if it's text-based
+                  }}
                 >
-                  <div
-                    className="cbg rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
-                    style={{ width: "64px", height: "64px" }}
-                  >
-                    {stat.icon}
-                  </div>
-                  <h3 className="h2 fw-bold">{stat.title}</h3>
-                  <p className="text-muted">{stat.subtitle}</p>
+                  {stat.icon}
                 </div>
+                <h3 className="display-5 fw-bold">{stat.title}</h3> {/* Bigger title */}
+                <p className="fs-5 text-muted">{stat.subtitle}</p> {/* Larger text */}
               </div>
-            ))}
-          </Slider>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+    
+    
     );
   };
   

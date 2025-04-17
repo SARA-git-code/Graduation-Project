@@ -4,7 +4,7 @@ import herovideo from '../assets/herovideo.mp4'
 
 const Footer = () => {
   return (
-    <footer className="foot shadow-sm mt-auto position-relative overflow-hidden">
+    <footer className="foot shadow-sm mt-auto position-relative overflow-hidden end-0">
       <video
             autoPlay
             loop

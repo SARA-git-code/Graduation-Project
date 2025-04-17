@@ -10,12 +10,13 @@ const Home = () => {
   return (
 <>
   {/* Hero Section */}
-  <div className="position-relative min-vh-100 d-flex flex-column justify-content-center align-items-center text-center">
+  <div className=" min-vh-100 d-flex flex-column 
+   justify-content-center align-items-center text-center" >
     {/* Background */}
     <div
       className="position-absolute top-0 start-0"
       style={{
-        width: '100%',
+        width:'100vw',
         height: '100%',
         backgroundImage: `url(${donateimage2})`,
         backgroundSize: 'cover',
@@ -55,12 +56,12 @@ const Home = () => {
   </div>
 
   {/* CTA Section */}
-  <div className="position-relative min-vh-100 d-flex flex-column justify-content-center align-items-center text-center">
+  <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center text-center">
     <div
-      className="position-absolute top-0 start-0"
+      className="position-absolute  start-0 end-0"
       style={{
         width: '100%',
-        height: '100%',
+        height: '90%',
         backgroundImage: `url(${donateimage2})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
