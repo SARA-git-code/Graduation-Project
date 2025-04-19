@@ -1,0 +1,234 @@
+
+/* General Reset & Scroll */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+ 
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Text Drop Animation */
+  .animated-text {
+    animation: textDrop 0.6s ease;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
+  }
+  
+  @keyframes textDrop {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Tab Slide Down */
+  .tab-content {
+    animation: slideDown 0.4s ease-in-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Pulse on Active Tab */
+  .nav-link.active {
+    position: relative;
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 transparent;
+    }
+    50% {
+      box-shadow: 0 0 8px var(--accent-color);
+    }
+  }
+  
+  /* Wiggle on Profile Image */
+  .profile-img:hover {
+    animation: wiggle 0.5s ease-in-out;
+  }
+  
+  @keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+    75% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  /* ------------------------------
+      Theme: Dark Mode
+  ------------------------------ */
+  [data-theme='dark'] {
+    background-color: #121212;
+    color: #e5e5e5;
+  }
+  
+  [data-theme='dark'] .bg-light {
+    background-color: #1f1f1f !important;
+  }
+  
+  [data-theme='dark'] .card {
+    background-color: #2a2a2a !important;
+    color: #f1f1f1;
+  }
+  
+  [data-theme='dark'] .form-select.w-auto {
+    background: #444;
+    color: #fff;
+  }
+  
+  /* ------------------------------
+      Components
+  ------------------------------ */
+  
+  /* Glass Effect Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  [data-theme='dark'] .glass-card {
+    background: rgba(32, 32, 32, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-card:hover {
+    transform: scale(1.01);
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Mood Selector */
+  .form-select.w-auto {
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    font-weight: 500;
+  }
+  
+  /* Donation Cards */
+  .donation-completed {
+    background-color: #f8f9fa !important;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  /* Hover Zoom for Cards */
+  .hover-zoom {
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .hover-zoom:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Images Zoom & Shadow */
+  img:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Profile Image Wrapper */
+  .profile-img-wrapper {
+    transition: transform 0.3s ease;
+  }
+  .profile-img-wrapper:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Button Hover */
+  button {
+    transition: all 0.2s ease-in-out;
+  }
+  button:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Inputs Focus Style */
+  .animated-input:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* ------------------------------
+      Card Text Styles
+  ------------------------------ */
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .card-body p {
+    font-size: 1rem;
+    padding: 0.3rem 0;
+  }
+  
+  .card-body a {
+    transition: color 0.2s ease;
+  }
+  .card-body a:hover {
+    color: #0d6efd;
+    text-decoration: underline;
+  }
+  

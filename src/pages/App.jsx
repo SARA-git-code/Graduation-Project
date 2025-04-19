@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Auth from './Auth';
 import Donations from './Donations';
@@ -8,13 +8,27 @@ import Chat from './Chat';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Home from './Home';
-
+import SettingsPage from './SettingsPage';
 
 function App() {
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en');
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
+
   return (
-    <Router >
+    <Router>
       <div className="min-h-screen flex flex-col bg-gray-50">
-        <Navbar id="nav"/>
+        {/* Pass theme and language to Navbar if needed */}
+        <Navbar language={language} setLanguage={setLanguage} />
+
         <main className="flex-grow container mx-auto px-4 py-8">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -23,12 +37,14 @@ function App() {
             <Route path="/add-donation" element={<AddDonation />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/settings" element={<SettingsPage setTheme={setTheme} setLanguage={setLanguage} />} />
           </Routes>
         </main>
+
         <Footer />
       </div>
     </Router>
   );
 }
 
-export default App;
+export default App; 
