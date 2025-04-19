@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Gift, UserCircle, MessageCircle, Bell, LogIn } from 'lucide-react';
+import { Heart, Gift, UserCircle, MessageCircle, LogIn } from 'lucide-react';
 import { Dropdown } from 'react-bootstrap';
 import { Settings } from 'lucide-react';
 
@@ -15,7 +15,6 @@ const Navbar = () => {
       navbar.classList.remove('scrolled'); // Remove when at the top
     }
   });
-
   return (
     <nav className="nav navbar navbar-expand-lg navbar-light bg-light shadow-sm ">
       

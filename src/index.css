@@ -6,7 +6,7 @@ body {
   background-color: var(--cds-color-white-0);
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden; /*to omit the scrolling horizantly in my page loaded*/
 }
 .container-fluid{
   height: 99%;
@@ -15,10 +15,10 @@ body {
 
 
 .nav {
+  position:absolute;
   display: flex;
   border-bottom: 1px solid;
   unicode-bidi: isolate;
- 
 }
  .navl{font-family: OpenSans, Arial, sans-serif;}
 
@@ -86,7 +86,21 @@ li:hover {
 
 /* Mobile-first approach: Styles for small screens (less than 576px) */
 @media (max-width: 575px) {
+  .nav1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* optional: align to left */
+    gap: 1rem;               /* optional: space between items */
+  }
 
+  .navbar ul li {
+    list-style: none;
+    padding: 10px 0;
+  }
+  .chat-messages {
+    max-height: calc(100vh - 150px); /* adjust based on your footer/input height */
+    overflow-y: auto;
+  }
   .navbar-collapse {
     background-color: #f8f9fa;
     padding: 1rem;
@@ -112,6 +126,17 @@ li:hover {
 
 /* Small screens (between 576px and 767px) */
 @media (max-width: 767px) {
+  nav1 {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* optional: align to left */
+    gap: 1rem;               /* optional: space between items */
+  }
+  .chat-messages {
+    max-height: calc(100vh - 150px); /* adjust based on your footer/input height */
+    overflow-y: auto;
+  }
   .navbar-collapse {
     background-color: #f8f9fa;
     padding: 1rem;
@@ -135,6 +160,17 @@ li:hover {
 }
 /* Medium screens (between 768px and 991px) */
 @media (max-width: 991px) {
+  nav1 {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* optional: align to left */
+    gap: 1rem;               /* optional: space between items */
+  }
+  .chat-messages {
+    max-height: calc(100vh - 150px); /* adjust based on your footer/input height */
+    overflow-y: auto;
+  }
  
   .navbar-collapse {
     background-color: #f8f9fa;
@@ -161,7 +197,10 @@ li:hover {
 
 /* Large screens (between 992px and 1199px) */
 @media (max-width: 1199px) {
-
+  .chat-messages {
+    max-height: calc(100vh - 150px); /* adjust based on your footer/input height */
+    overflow-y: auto;
+  }
   .navbar-collapse {
     background-color: #f8f9fa;
     padding: 1rem;
@@ -172,6 +211,11 @@ li:hover {
 
 /* Extra large screens (1200px and above) */
 @media (min-width: 1200px) {
+  
+  .chat-messages {
+    max-height: calc(100vh - 150px); /* adjust based on your footer/input height */
+    overflow-y: auto;
+  }
   .chat-page {
     width: 100%;
    padding:0 70px;
@@ -275,6 +319,5 @@ input:hover {
   max-height: calc(100vh - 150px); /* adjust based on your footer/input height */
   overflow-y: auto;
 }
-
 
 
